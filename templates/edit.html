@@ -1,5 +1,5 @@
-{{define "New"}}
-{{template "_headNew"}}
+{{define "Edit"}}
+{{template "_head"}}
 <body>
     <header>
 
@@ -7,13 +7,15 @@
         
     </header>
     <section class="container">
-        <h1>New Product</h1>
-        <form method="POST" action="insert">
+        <h1>Editando Produto</h1>
+        <p>Preencha os campos corretamente para editar o produto</p>
+        <form method="POST" action="update">
+            <input type="hidden" name="id" value="{{.Id}}">
             <div class="row">
                 <div class="col-sm-8">
                     <div class="form-group">
                         <label for="nome">Nome:</label>
-                        <input type="text" name="nome" class="form-control" required>
+                        <input type="text" name="nome" value="{{.Name}}"class="form-control" required>
                     </div>
                 </div>
             </div>
@@ -21,7 +23,7 @@
                 <div class="col-sm-8">
                     <div class="form-group">
                         <label for="descricao">Descrição:</label>
-                        <input type="text" name="descricao" class="form-control">
+                        <input type="text" name="descricao" value="{{.Discription}}" class="form-control">
                     </div>
                 </div>
             </div>
@@ -29,7 +31,7 @@
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="preco">Preço:</label>
-                        <input type="number" name="preco" class="form-control" step="0.01" required>
+                        <input type="number" name="preco" value="{{.Price}}" class="form-control" step="0.01" required>
                     </div>
                 </div>
             </div>
@@ -38,12 +40,12 @@
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="quantidade">Quantidade:</label>
-                        <input type="number" name="quantidade" class="form-control" required>
+                        <input type="number" name="quantidade" value="{{.Quantity}}" class="form-control" required>
                     </div>
                 </div>
             </div>
             <br>
-            <button type="submit" value="salvar" class="btn btn-success">Salvar</button>
+            <button type="submit" value="salvar" class="btn btn-success">Atualizar</button>
             <a class="btn btn-info" href="/">Voltar</a>
         </form>
     </section>
